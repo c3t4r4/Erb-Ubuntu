@@ -2,7 +2,6 @@
 ======
 
 [![Build Status](https://app.travis-ci.com/srsran/srsRAN.svg?branch=master)](https://app.travis-ci.com/github/srsran/srsRAN)
-[![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/srsran/srsRAN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/srsran/srsRAN/context:cpp)
 [![Coverity](https://scan.coverity.com/projects/23045/badge.svg)](https://scan.coverity.com/projects/srsran)
 ======
 
@@ -45,13 +44,19 @@
      ```
 
     - srsRAN:
-    ```sh
-        cd ~/Documentos && git clone https://github.com/srsRAN/srsRAN.git && cd srsRAN && git checkout tags/release_19_12 && mkdir build && cd build && cmake ../ && make -j4 && sudo make install && sudo ldconfig && sudo ./srslte_install_configs.sh user
-     ```
+        - Release Last:
+        ```sh
+            cd ~/Documentos && git clone https://github.com/srsRAN/srsRAN.git && cd srsRAN && mkdir build && cd build && cmake ../ && make -j4 && sudo make install && sudo ldconfig && sudo ./srsran_install_configs.sh user
+        ```
+
+        - Release 19_12:
+        ```sh
+            cd ~/Documentos && git clone https://github.com/srsRAN/srsRAN.git && cd srsRAN && git checkout tags/release_19_12 && mkdir build && cd build && cmake ../ && make -j4 && sudo make install && sudo ldconfig && sudo ./srslte_install_configs.sh user
+        ```
 
     - srsRANFork:
     ```sh
-        cd ~/Documentos && git clone https://github.com/c3t4r4/srsRAN-SN.git && cd srsRAN-SN && mkdir build && cd build && cmake ../ && make -j4 && sudo make install && sudo ldconfig && sudo ./srslte_install_configs.sh user
+        cd ~/Documentos && git clone https://github.com/c3t4r4/srsRAN-SN.git && cd srsRAN-SN && mkdir build && cd build && cmake ../ && make -j4 && sudo make install && sudo ldconfig && sudo ./srsran_install_configs.sh user
      ```
 
 3. Configurar srsRan:
@@ -89,6 +94,25 @@
         mcc = <yourMCC>
         mnc = <yourMNC>
         mme_bind_addr = 127.0.1.100  ## or local interface IP for external S1-MME, eg. 192.168.1.10
+    ```
+
+4. Usando Amplificador XB-300:
+    - Ativando
+    ```sh
+        bladeRF-cli -i
+
+    ```
+    ```sh
+        xb 300 enable
+        
+    ```
+    ```sh
+        xb 300 pa on
+        
+    ```
+    ```sh
+        xb 300 lna on
+        
     ```
 
     
